@@ -11,7 +11,9 @@ Gradual deviation from baseline goes unnoticed because each small change seems a
 
 ## Real-World Examples
 
-**NASA Challenger**: O-ring erosion normalized over multiple flights.
+**Knight Capital (2012)**: A dormant trading algorithm was accidentally reactivated. Over 45 minutes, the system's behavior drifted catastrophically from normal patterns. No alerts triggered because each trade was within individual thresholds. Lost $440 million. Company bankrupt within days.
+
+**Boeing 737 MAX (2018-2019)**: MCAS system gradually expanded in scope during development. Original safety analysis became outdated but wasn't revisited. Pilots weren't told the system existed. 346 deaths in two crashes.
 
 **Infrastructure**: Servers gradually accumulating state drift from golden image.
 

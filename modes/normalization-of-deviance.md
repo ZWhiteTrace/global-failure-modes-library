@@ -11,7 +11,9 @@ Repeated rule violations become accepted practice when they don't immediately ca
 
 ## Real-World Examples
 
-**NASA Columbia**: Foam strikes normalized because previous flights survived.
+**NASA Challenger (1986)**: O-ring erosion was observed on previous flights but dismissed because "it worked last time." Engineers raised concerns but were overruled. 7 astronauts died. The Rogers Commission identified normalization of deviance as a root cause.
+
+**NASA Columbia (2003)**: Foam strikes normalized because previous flights survived. Same organizational pattern as Challenger, 17 years later. 7 astronauts died.
 
 **Healthcare**: Hand hygiene compliance declining without immediate consequences.
 
