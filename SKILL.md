@@ -1,41 +1,108 @@
 # failure-check
 
-Skill for analyzing code and systems against known failure patterns.
+Analyze code, architecture, and systems against documented failure patterns.
 
-## Usage
+## Trigger Conditions
 
-When reviewing code, architecture decisions, or system designs, invoke this skill to check against documented failure modes.
+Activate this skill when the context involves:
+- Code review (especially with automation, AI, or financial logic)
+- Architecture decision records (ADR)
+- Smart contract review or audit
+- DeFi protocol analysis
+- System design with unclear ownership or accountability
+- Post-incident analysis or RCA
+- Metric-driven optimization systems
 
 ## Instructions
 
-1. Read the failure mode index at `modes/INDEX.md`
-2. For each relevant failure mode, check if the current context exhibits warning signs
-3. Output findings in this format:
+### Step 1: Context Detection
 
-```
+Identify the domain:
+- **General software**: Check core failure modes
+- **Web3/DeFi/Smart contracts**: Check BOTH core AND web3 failure modes
+- **Organizational/Process**: Focus on responsibility and normalization patterns
+
+### Step 2: Load Relevant Modes
+
+Read the failure mode index:
+- Core modes: `modes/INDEX.md`
+- Web3 modes: `modes/web3/INDEX.md` (if blockchain/DeFi context)
+
+### Step 3: Pattern Matching
+
+For each failure mode, scan for warning signs in the code/design:
+
+**Core Patterns:**
+| Mode | Look For |
+|------|----------|
+| Automation Bias | Uncritical AI output usage, no human verification |
+| Responsibility Laundering | "The algorithm decided", diffused ownership |
+| Goodhart's Trap | Metric gaming, KPIs disconnected from purpose |
+| Drift Blindness | Baseline erosion, "it's always been like this" |
+| Normalization of Deviance | Known rule violations accepted |
+
+**Web3 Patterns:**
+| Mode | Look For |
+|------|----------|
+| Flash Loan Blindness | "Attack too expensive", no atomic manipulation checks |
+| Oracle Trust Cascade | Single oracle, no staleness check, spot price usage |
+| Composability Explosion | External calls without reentrancy guards, state reads mid-tx |
+| Governance Capture | Token concentration, no time-lock, flash loan voting |
+| Upgrade Rug Vector | EOA admin, no time-lock, unclear upgrade authority |
+
+### Step 4: Output Format
+
+```markdown
 ## Failure Mode Analysis
 
-### [Mode Name] - Risk Level: LOW/MEDIUM/HIGH
+### [Mode Name]
+**Risk**: LOW / MEDIUM / HIGH / CRITICAL
+**Confidence**: LOW / MEDIUM / HIGH
 
-**Warning Signs Detected:**
-- [specific observation]
+**Warning Signs:**
+- [ ] [Specific observation from code/design]
+- [ ] [Another observation]
+
+**Evidence:**
+`file:line` - [code snippet or design element]
 
 **Recommendation:**
-- [actionable suggestion]
+1. [Actionable mitigation]
+2. [Verification step]
+
+**Reference:** [Link to mode documentation]
 ```
 
-## Failure Modes Covered
+## Output Guidelines
 
-- **Automation Bias**: Over-reliance on automated systems
-- **Responsibility Laundering**: Diffused accountability through abstraction
-- **Goodhart's Trap**: Metrics becoming targets, losing original intent
-- **Drift Blindness**: Gradual deviation from baseline going unnoticed
-- **Normalization of Deviance**: Repeated violations becoming accepted norm
+- Only report modes with actual evidence (don't guess)
+- Link specific code/design elements to warning signs
+- Provide actionable recommendations, not just warnings
+- If no patterns detected, explicitly state "No failure mode patterns detected"
+- For Web3: Always check flash loan + oracle + reentrancy as baseline
 
-## When to Invoke
+## Quick Reference
 
-- Code reviews involving automation or AI-assisted decisions
-- Architecture discussions with unclear ownership
-- Systems with heavy metric-driven optimization
-- Long-running projects with accumulated technical debt
-- Post-incident analysis
+### Core Failure Modes (5)
+1. **Automation Bias** - Uncritical trust in automated systems
+2. **Responsibility Laundering** - Accountability diffused through abstraction
+3. **Goodhart's Trap** - Metrics gaming destroys original intent
+4. **Drift Blindness** - Gradual deviation goes unnoticed
+5. **Normalization of Deviance** - Rule violations become accepted
+
+### Web3 Failure Modes (5)
+1. **Flash Loan Arbitrage Blindness** - Assuming capital prevents attacks
+2. **Oracle Trust Cascade** - Single oracle = single point of failure
+3. **Composability Explosion** - Safe protocols unsafe when combined
+4. **Governance Capture** - Token voting becomes plutocracy
+5. **Upgrade Rug Vector** - Upgradeable = one key from total loss
+
+## Example Invocation
+
+User: "Review this smart contract for potential issues"
+
+Claude should:
+1. Detect Web3 context → load both core and web3 modes
+2. Scan for: oracle usage, external calls, upgradeability, governance
+3. Map findings to specific failure modes
+4. Output structured analysis with evidence and recommendations
