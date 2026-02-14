@@ -1,5 +1,10 @@
 # Global Failure Modes Library
 
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Claude Code Skill](https://img.shields.io/badge/Claude_Code-Skill-blueviolet)](https://github.com/anthropics/claude-code)
+[![Failure Modes](https://img.shields.io/badge/Modes-5-orange)]()
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+
 A curated collection of systemic failure patterns across industries, designed for practical application in code reviews, architecture decisions, and incident analysis.
 
 ## Quick Start
