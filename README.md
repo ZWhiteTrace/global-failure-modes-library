@@ -2,7 +2,7 @@
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Claude Code Skill](https://img.shields.io/badge/Claude_Code-Skill-blueviolet)](https://github.com/anthropics/claude-code)
-[![Failure Modes](https://img.shields.io/badge/Modes-5-orange)]()
+[![Failure Modes](https://img.shields.io/badge/Modes-10-orange)]()
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 A curated collection of systemic failure patterns across industries, designed for practical application in code reviews, architecture decisions, and incident analysis.
@@ -32,6 +32,16 @@ Browse `modes/` directory for failure pattern documentation.
 | [Goodhart's Trap](modes/goodharts-trap.md) | Metrics gaming destroys original intent |
 | [Drift Blindness](modes/drift-blindness.md) | Gradual deviation goes unnoticed |
 | [Normalization of Deviance](modes/normalization-of-deviance.md) | Rule violations become accepted practice |
+
+### Web3 / DeFi Extension
+
+| Mode | One-Line Summary |
+|------|------------------|
+| [Flash Loan Arbitrage Blindness](modes/web3/flash-loan-arbitrage-blindness.md) | Assuming capital requirements prevent attacks |
+| [Oracle Trust Cascade](modes/web3/oracle-trust-cascade.md) | Single oracle dependency = single point of failure |
+| [Composability Explosion](modes/web3/composability-explosion.md) | Safe protocols become unsafe when combined |
+| [Governance Capture](modes/web3/governance-capture.md) | Token voting becomes plutocracy |
+| [Upgrade Rug Vector](modes/web3/upgrade-rug-vector.md) | Upgradeable = one key from total loss |
 
 ## Contributing
 
